@@ -1,0 +1,333 @@
+root:
+    MDBottomNavigationItem:
+        name: "first"
+        text: "Table"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            pos_hint: {"x": 0, "y": 0.8}
+
+            MDLabel:
+                text: "Chemistry Database"
+                halign: "center"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,.8
+                font_style: "H3"
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            adaptive_height: True
+            pos_hint: {"x": 0, "y": 0.7}
+            spacing: 10
+            padding: [25,0]
+
+            MDDropDownItem:
+                id: drop_item
+                text: 'Type'
+                pos_hint:{"x":0, "y": 0.25}
+                size_hint: 0,0
+                on_press: app.menu.open()
+
+            MDTextField:
+                id: search
+                hint_text: "Enter Name"
+
+            MDRectangleFlatButton:
+                halign: "center"
+                text: "Search"
+                text_color: 0,0,0,1
+                md_bg_color: 0,0,1,0.5
+                size_hint : 0.5,0
+                on_press: app.search_element()
+
+
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            pos_hint: {"x": 0.25, "y": 0.25}
+            spacing: 50
+
+            MDRectangleFlatButton:
+                halign: "center"
+                text: "Periodic Database"
+                text_color: 0,0,0,1
+                md_bg_color: 1,0,1,0.5
+                size_hint: 0.5,0
+                on_press: app.open_table_Periodic()
+
+
+            MDRectangleFlatButton:
+                halign: "center"
+                text: "Polyatomic Database"
+                text_color: 0,0,0,1
+                md_bg_color: 1,0,1,0.5
+                size_hint: 0.5,0
+                on_press: app.open_table_Periodic()
+
+
+
+    MDBottomNavigationItem:
+        name: "second"
+        text: "Naming Compound"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            pos_hint: {"x": 0, "y": 0.8}
+
+
+            MDLabel:
+                text: "Naming Chemical Compound"
+                halign: "center"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,.8
+                font_style: "H3"
+
+        MDGridLayout:
+            cols: 2
+            rows: 4
+            adaptive_height: True
+            spacing: 10
+            padding: [10,0]
+            pos_hint: {"x": 0, "y": 0.3}
+
+            MDLabel:
+                text: "Compound Name"
+                halign: "left"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,.8
+                font_style: "Body2"
+
+            MDTextField:
+                id: Compound_Name
+                hint_text: "Enter The Compound"
+                readonly: False
+
+            MDLabel:
+                text: "Compound Symbol "
+                halign: "left"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,.8
+                font_style: "Body2"
+
+            MDTextField:
+                id: Compound_Symbol
+                hint_text: "Enter The Compound"
+                readonly: False
+
+            MDLabel:
+                text: "Molar Mass"
+                halign: "left"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,.8
+                font_style: "Body2"
+
+            MDTextFieldRect:
+                id: Molar_Mass
+                size_hint: 1.5, None
+                height: "30dp"
+                disabled: True
+
+            MDLabel:
+                text: "Molecular Type"
+                halign: "left"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,.8
+                font_style: "Body2"
+
+            MDTextFieldRect:
+                id: Type
+                size_hint: 1.5, None
+                height: "30dp"
+                disabled: True
+
+        MDBoxLayout:
+            adaptive_height: True
+            orientation: "vertical"
+            spacing: 15
+            pos_hint: {"x": 0, "y": 0}
+
+            MDLabel:
+                text: "Enter Compound Symbol or Compound Name"
+                halign: "center"
+                valigh: "top"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 1,0,0,.8
+                font_style: "Body2"
+
+            MDRectangleFlatButton:
+                text: "Execute"
+                text_theme_color: "primary"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                font_size: "18sp"
+                increment_width: root.width
+                on_press: app.Naming_Compound()
+
+            MDRectangleFlatButton:
+                text: "Clear"
+                text_theme_color: "primary"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                font_size: "18sp"
+                increment_width: root.width
+                on_press: app.Delete_Everything()
+
+    MDBottomNavigationItem:
+        name: "third"
+        text: "Chemistry Balancer"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            pos_hint: {"x": 0, "y":0.8}
+
+            MDLabel:
+                text: "Chemistry Balance Calculator"
+                halign: "center"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,.8
+                font_style: "H5"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            spacing: 10
+            pos_hint: {"x": 0, "y": 0.7}
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                adaptive_height: True
+                spacing: 10
+
+                MDTextFieldRect:
+                    id: equation
+                    size_hint: 1, None
+                    height: "36dp"
+
+                MDRectangleFlatButton:
+                    text: "Balance"
+                    font_size: "18sp"
+                    text_color: 0, 0, 1, 1
+                    on_press: app.Balancing_Equation()
+
+            MDLabel:
+                id: answer
+                text: "Result Appear Hear"
+                halign: "center"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,.8
+                font_style: "H6"
+
+
+
+        MDBoxLayout:
+            orientation: "vertical"
+            adaptive_height: True
+            spacing: 10
+            pos_hint: {"x": 0, "y": 0.3}
+
+            MDLabel:
+                text: "Click Show Data For Detail"
+                halign: "center"
+                theme_text_color: "Primary"
+                theme_text_color: "Custom"
+                text_color: 1,0,0,.8
+                font_style: "Body2"
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "Symbol"
+                    halign: "center"
+                    theme_text_color: "Primary"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,.8
+                    font_style: "H6"
+
+                MDTextFieldRect:
+                    id: Symbol
+                    size_hint: 1, None
+                    height: "30dp"
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "Mass"
+                    halign: "center"
+                    theme_text_color: "Primary"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,.8
+                    font_style: "H6"
+
+                MDTextFieldRect:
+                    id: Mass
+                    size_hint: 1, None
+                    height: "30dp"
+
+            MDBoxLayout:
+                orientation: "horizontal"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "Moles"
+                    halign: "center"
+                    theme_text_color: "Primary"
+                    theme_text_color: "Custom"
+                    text_color: 0,0,0,.8
+                    font_style: "H6"
+
+                MDTextFieldRect:
+                    id: Moles
+                    size_hint: 1, None
+                    height: "30dp"
+
+        MDBoxLayout:
+            adaptive_height: True
+            orientation: "vertical"
+            spacing: 5
+            pos_hint: {"x": 0, "y": 0}
+
+            MDRectangleFlatButton:
+                text: "Calculate"
+                text_theme_color: "primary"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                font_size: "18sp"
+                increment_width: root.width
+                on_press: app.Calculating_Mass_Moles()
+
+            MDRectangleFlatButton:
+                text: "Show Data"
+                text_theme_color: "primary"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                font_size: "18sp"
+                increment_width: root.width
+                on_press: app.open_table()
+
+            MDRectangleFlatButton:
+                text: "Clear"
+                text_theme_color: "primary"
+                pos_hint: {"center_x": .5, "center_y": .5}
+                font_size: "18sp"
+                increment_width: root.width
+                on_press: app.Clear_Balancer()
+
+
+
+
+
+
+
+
